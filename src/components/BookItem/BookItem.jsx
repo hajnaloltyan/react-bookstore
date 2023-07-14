@@ -1,15 +1,6 @@
 import './BookItem.css';
 
 const BookItem = () => {
-  const book = {
-    id: 0,
-    title: 'title',
-    author: 'author',
-    category: 'Action',
-    currentChapter: 'Chapter 3',
-    completed: '10%',
-  };
-
   return (
     <li className="bookCard">
       <article className="bookDetails">
