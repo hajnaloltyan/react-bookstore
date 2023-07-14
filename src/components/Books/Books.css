@@ -1,0 +1,6 @@
+.bookList {
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+  margin-top: 3%;
+}

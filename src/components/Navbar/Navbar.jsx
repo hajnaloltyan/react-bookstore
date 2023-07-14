@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
-// import './Navbar.css';
+import './Navbar.css';
 
 const links = [
   { path: '/', text: 'Books' },
-  { path: '/categories', text: 'Categories' },
+  { path: 'categories', text: 'Categories' },
 ];
 
 const Navbar = () => (
