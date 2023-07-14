@@ -1,0 +1,45 @@
+.bookCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 8px;
+}
+
+.bookDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5vw;
+  flex-grow: 2;
+  padding: 3%;
+}
+
+.bookInfo {
+  text-align: left;
+  padding-bottom: 5px;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.card-hr {
+  height: 80px;
+  margin: 0;
+}
+
+.bookChapter {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+  padding: 0 5%;
+}
+
+.progressBtn {
+  width: 50%;
+}
