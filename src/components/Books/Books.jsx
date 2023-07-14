@@ -1,5 +1,9 @@
+import BookItem from '../BookItem/BookItem';
+
 const Books = () => (
-  <h2>Books</h2>
+  <ul>
+    <BookItem />
+  </ul>
 );
 
 export default Books;
