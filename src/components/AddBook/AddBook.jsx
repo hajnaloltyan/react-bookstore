@@ -31,7 +31,8 @@ const AddBook = ({ addNewBook }) => {
   };
 
   return (
-    <>
+    <section className="newBook">
+      <h2>Add New Book</h2>
       <form onSubmit={handleSubmit} className="form">
         <input
           type="text"
@@ -55,7 +56,7 @@ const AddBook = ({ addNewBook }) => {
         </button>
       </form>
       <span className="warning">{warning}</span>
-    </>
+    </section>
   );
 };
 

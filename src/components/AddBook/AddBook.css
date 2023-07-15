@@ -1,0 +1,21 @@
+.newBook {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bookInput {
+  width: 20vw;
+}
+
+.warning {
+  color: red;
+  text-align: center;
+}
