@@ -1,0 +1,10 @@
+.header {
+  margin: 2% 10%;
+  display: flex;
+  gap: 10%;
+  align-items: center;
+}
+
+.content {
+  margin: 3% 10%;
+}
