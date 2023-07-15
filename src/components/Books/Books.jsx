@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import BookItem from '../BookItem/BookItem';
 import './Books.css';
+import AddBook from '../AddBook/AddBook';
 
 const Books = () => {
   const [books, setBooks] = useState([
@@ -9,15 +10,15 @@ const Books = () => {
       title: 'title',
       author: 'author',
       category: 'Action',
-      currentChapter: 'Chapter 3',
-      completed: '10%',
+      currentChapter: 'Chapter 21',
+      completed: '80%',
     },
     {
       id: 1,
       title: 'title',
       author: 'author',
       category: 'Action',
-      currentChapter: 'Chapter 3',
+      currentChapter: 'Chapter 2',
       completed: '10%',
     },
     {
@@ -25,8 +26,8 @@ const Books = () => {
       title: 'title',
       author: 'author',
       category: 'Action',
-      currentChapter: 'Chapter 3',
-      completed: '10%',
+      currentChapter: 'Chapter 15',
+      completed: '60%',
     },
   ]);
 
@@ -36,16 +37,33 @@ const Books = () => {
     ]);
   };
 
+  const addNewBook = ({ title, author }) => {
+    const newBook = {
+      id: books.length,
+      title,
+      author,
+      category: 'Action',
+      currentChapter: 'Chapter 1',
+      completed: '0%',
+    };
+    setBooks([...books, newBook]);
+  };
+
   return (
-    <ul className="bookList">
-      {books.map((book) => (
-        <BookItem
-          key={book.id}
-          bookProp={book}
-          deleteBook={deleteBook}
-        />
-      ))}
-    </ul>
+    <>
+      <ul className="bookList">
+        {books.map((book) => (
+          <BookItem
+            key={book.id}
+            bookProp={book}
+            deleteBook={deleteBook}
+          />
+        ))}
+      </ul>
+      <section>
+        <AddBook addNewBook={addNewBook} />
+      </section>
+    </>
   );
 };
 

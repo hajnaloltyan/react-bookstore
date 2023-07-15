@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import './AddBook.css';
 
 const AddBook = ({ addNewBook }) => {
@@ -56,6 +57,10 @@ const AddBook = ({ addNewBook }) => {
       <span className="warning">{warning}</span>
     </>
   );
+};
+
+AddBook.propTypes = {
+  addNewBook: PropTypes.func.isRequired,
 };
 
 export default AddBook;

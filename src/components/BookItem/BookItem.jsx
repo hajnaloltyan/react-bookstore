@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './BookItem.css';
 
 const BookItem = ({ bookProp, deleteBook }) => {
@@ -44,6 +45,18 @@ const BookItem = ({ bookProp, deleteBook }) => {
       </div>
     </li>
   );
+};
+
+BookItem.propTypes = {
+  bookProp: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    currentChapter: PropTypes.string.isRequired,
+    completed: PropTypes.string.isRequired,
+  }).isRequired,
+  deleteBook: PropTypes.func.isRequired,
 };
 
 export default BookItem;
