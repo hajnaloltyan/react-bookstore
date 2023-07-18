@@ -1,12 +1,16 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { addNewBook } from '../../redux/books/booksSlice';
 import './AddBook.css';
 
-const AddBook = ({ addNewBook }) => {
+const AddBook = () => {
+  const dispatch = useDispatch();
+
   const [bookInfo, setBookInfo] = useState({
     title: '',
     author: '',
   });
+
   const [warning, setWarning] = useState('');
 
   const handleChange = (e) => {
@@ -19,7 +23,7 @@ const AddBook = ({ addNewBook }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (bookInfo.title.trim() && bookInfo.author.trim()) {
-      addNewBook(bookInfo);
+      dispatch(addNewBook(bookInfo));
       setBookInfo({
         title: '',
         author: '',
@@ -58,10 +62,6 @@ const AddBook = ({ addNewBook }) => {
       <span className="warning">{warning}</span>
     </section>
   );
-};
-
-AddBook.propTypes = {
-  addNewBook: PropTypes.func.isRequired,
 };
 
 export default AddBook;
