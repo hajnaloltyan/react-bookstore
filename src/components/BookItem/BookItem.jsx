@@ -1,15 +1,22 @@
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { deleteBook } from '../../redux/books/booksSlice';
 import './BookItem.css';
 
-const BookItem = ({ bookProp, deleteBook }) => {
+const BookItem = ({ book }) => {
   const {
-    id,
+    itemID,
     title,
     author,
     category,
     currentChapter,
     completed,
-  } = bookProp;
+  } = book;
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(deleteBook(itemID));
+  };
 
   return (
     <li className="bookCard">
@@ -22,7 +29,7 @@ const BookItem = ({ bookProp, deleteBook }) => {
           <ul className="actionButtons">
             <li><button type="button">Comments</button></li>
             <li>
-              <button type="button" onClick={() => deleteBook(id)}>
+              <button type="button" onClick={handleDelete}>
                 Remove
               </button>
             </li>
@@ -48,15 +55,14 @@ const BookItem = ({ bookProp, deleteBook }) => {
 };
 
 BookItem.propTypes = {
-  bookProp: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+  book: PropTypes.shape({
+    itemID: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     currentChapter: PropTypes.string.isRequired,
     completed: PropTypes.string.isRequired,
   }).isRequired,
-  deleteBook: PropTypes.func.isRequired,
 };
 
 export default BookItem;
