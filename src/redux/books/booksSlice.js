@@ -1,33 +1,30 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { nanoid } from 'nanoid';
+
+const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps';
+const apiKey = import.meta.env.VITE_API_KEY;
+const fullURL = `${baseURL}/${apiKey}/books`;
 
 const initialBooks = {
-  books: [
-    {
-      itemID: 'item1',
-      title: 'The Great Gatsby',
-      author: 'John Smith',
-      category: 'Fiction',
-      currentChapter: 'Chapter 21',
-      completed: '80%',
-    },
-    {
-      itemID: 'item2',
-      title: 'Anna Karenina',
-      author: 'Leo Tolstoy',
-      category: 'Fiction',
-      currentChapter: 'Chapter 2',
-      completed: '10%',
-    },
-    {
-      itemID: 'item3',
-      title: 'The Selfish Gene',
-      author: 'Richard Dawkins',
-      category: 'Nonfiction',
-      currentChapter: 'Chapter 15',
-      completed: '60%',
-    },
-  ],
+  books: [],
+  status: 'idle', // loading, succeeded, failed
+  error: null,
 };
+
+export const fetchBooks = createAsyncThunk(
+  'books/fetchBooks',
+  async () => {
+    try {
+      const response = await axios.get(fullURL);
+      const data = Object.values(response.data);
+      const booksResult = data.flat();
+      return booksResult;
+    } catch (err) {
+      return err.message;
+    }
+  },
+);
 
 const booksSlice = createSlice({
   name: 'books',
@@ -43,7 +40,7 @@ const booksSlice = createSlice({
     addNewBook: (state, { payload }) => {
       const { title, author } = payload;
       const newBook = {
-        itemID: `item${state.books.length + 1}`,
+        itemID: nanoid(),
         title,
         author,
         category: 'Action',
@@ -53,7 +50,33 @@ const booksSlice = createSlice({
       state.books.push(newBook);
     },
   },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchBooks.pending, (state) => ({
+        ...state,
+        status: 'loading',
+      }))
+      .addCase(fetchBooks.fulfilled, (state, action) => ({
+        ...state,
+        status: 'succeeded',
+        books: action.payload.map((book) => ({
+          ...book,
+          itemID: nanoid(),
+          currentChapter: 'Chapter 1',
+          completed: '0%',
+        })),
+      }))
+      .addCase(fetchBooks.rejected, (state, action) => ({
+        ...state,
+        status: 'failed',
+        error: action.error.message,
+      }));
+  },
 });
+
+export const AllBooks = (state) => state.books.books;
+export const getStatus = (state) => state.books.status;
+export const getError = (state) => state.books.error;
 
 export const { deleteBook, addNewBook } = booksSlice.actions;
 
