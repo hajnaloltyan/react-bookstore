@@ -29,6 +29,11 @@ a {
 }
 
 button {
+  font-family: Roboto Slab, serif;
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
   cursor: pointer;
   background-color: var(--blue);
   border: 0;

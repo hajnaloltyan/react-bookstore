@@ -27,6 +27,15 @@
   padding-top: 20px;
 }
 
+.circle {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: 5px solid #307bbe;
+  transform: rotate(45deg);
+  border-color: var(--blue) var(--blue) var(--blue) var(--bg-grey);
+}
+
 .card-hr {
   height: 80px;
   margin: 0;

@@ -38,6 +38,7 @@ const BookItem = ({ book }) => {
         </div>
 
         <div className="bookCompletion">
+          <div className="circle" />
           <h2>{completed}</h2>
           <h3>Completed</h3>
         </div>
