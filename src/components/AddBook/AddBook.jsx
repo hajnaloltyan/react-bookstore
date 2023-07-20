@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addNewBook } from '../../redux/books/booksSlice';
+import { sendNewBook } from '../../redux/books/booksSlice';
 import './AddBook.css';
 
 const AddBook = () => {
@@ -23,12 +23,13 @@ const AddBook = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (bookInfo.title.trim() && bookInfo.author.trim()) {
-      dispatch(addNewBook(bookInfo));
-      setBookInfo({
-        title: '',
-        author: '',
+      dispatch(sendNewBook(bookInfo)).then(() => {
+        setBookInfo({
+          title: '',
+          author: '',
+        });
+        setWarning('');
       });
-      setWarning('');
     } else {
       setWarning('Empty input field(s)!');
     }
