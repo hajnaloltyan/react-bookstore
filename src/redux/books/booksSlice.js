@@ -26,6 +26,24 @@ export const fetchBooks = createAsyncThunk(
   },
 );
 
+export const sendNewBook = createAsyncThunk(
+  'books/sendNewBook',
+  async (newBook) => {
+    try {
+      const allDetails = {
+        ...newBook,
+        item_id: nanoid(),
+        category: 'Fiction',
+      };
+
+      const response = await axios.post(fullURL, allDetails);
+      return response.data;
+    } catch (err) {
+      return err.message;
+    }
+  },
+);
+
 const booksSlice = createSlice({
   name: 'books',
   initialState: initialBooks,
@@ -34,20 +52,8 @@ const booksSlice = createSlice({
       const bookId = payload;
       return {
         ...state,
-        books: state.books.filter((book) => book.itemID !== bookId),
+        books: state.books.filter((book) => book.item_id !== bookId),
       };
-    },
-    addNewBook: (state, { payload }) => {
-      const { title, author } = payload;
-      const newBook = {
-        itemID: nanoid(),
-        title,
-        author,
-        category: 'Action',
-        currentChapter: 'Chapter 1',
-        completed: '0%',
-      };
-      state.books.push(newBook);
     },
   },
   extraReducers(builder) {
@@ -61,7 +67,7 @@ const booksSlice = createSlice({
         status: 'succeeded',
         books: action.payload.map((book) => ({
           ...book,
-          itemID: nanoid(),
+          item_id: nanoid(),
           currentChapter: 'Chapter 1',
           completed: '0%',
         })),
@@ -70,7 +76,16 @@ const booksSlice = createSlice({
         ...state,
         status: 'failed',
         error: action.error.message,
-      }));
+      }))
+      .addCase(sendNewBook.fulfilled, (state, action) => {
+        if (action.payload === 'created') {
+          return {
+            ...state,
+            status: 'succeeded',
+          };
+        }
+        return state;
+      });
   },
 });
 
@@ -78,6 +93,6 @@ export const AllBooks = (state) => state.books.books;
 export const getStatus = (state) => state.books.status;
 export const getError = (state) => state.books.error;
 
-export const { deleteBook, addNewBook } = booksSlice.actions;
+export const { deleteBook } = booksSlice.actions;
 
 export default booksSlice.reducer;
