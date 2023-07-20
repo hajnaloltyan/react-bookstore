@@ -8,7 +8,7 @@ const fullURL = `${baseURL}/${apiKey}/books`;
 
 const initialBooks = {
   books: [],
-  status: 'idle', // loading, succeeded, failed
+  status: 'idle',
   error: null,
 };
 
@@ -17,8 +17,11 @@ export const fetchBooks = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(fullURL);
-      const data = Object.values(response.data);
-      const booksResult = data.flat();
+      const { data } = response;
+      const booksResult = Object.keys(data).map((key) => ({
+        item_id: key,
+        ...data[key][0],
+      }));
       return booksResult;
     } catch (err) {
       return err.message;
@@ -44,18 +47,21 @@ export const sendNewBook = createAsyncThunk(
   },
 );
 
+export const deleteBook = createAsyncThunk(
+  'books/deleteBook',
+  async (bookID) => {
+    try {
+      const response = await axios.delete(`${fullURL}/${bookID}`);
+      return response.data;
+    } catch (err) {
+      return err.message;
+    }
+  },
+);
+
 const booksSlice = createSlice({
   name: 'books',
   initialState: initialBooks,
-  reducers: {
-    deleteBook: (state, { payload }) => {
-      const bookId = payload;
-      return {
-        ...state,
-        books: state.books.filter((book) => book.item_id !== bookId),
-      };
-    },
-  },
   extraReducers(builder) {
     builder
       .addCase(fetchBooks.pending, (state) => ({
@@ -67,7 +73,6 @@ const booksSlice = createSlice({
         status: 'succeeded',
         books: action.payload.map((book) => ({
           ...book,
-          item_id: nanoid(),
           currentChapter: 'Chapter 1',
           completed: '0%',
         })),
@@ -85,6 +90,15 @@ const booksSlice = createSlice({
           };
         }
         return state;
+      })
+      .addCase(deleteBook.fulfilled, (state, action) => {
+        if (action.payload === 'The book was deleted successfully!') {
+          return {
+            ...state,
+            status: 'succeeded',
+          };
+        }
+        return state;
       });
   },
 });
@@ -92,7 +106,5 @@ const booksSlice = createSlice({
 export const AllBooks = (state) => state.books.books;
 export const getStatus = (state) => state.books.status;
 export const getError = (state) => state.books.error;
-
-export const { deleteBook } = booksSlice.actions;
 
 export default booksSlice.reducer;
