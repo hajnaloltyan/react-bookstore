@@ -5,7 +5,7 @@ import './BookItem.css';
 
 const BookItem = ({ book }) => {
   const {
-    itemID,
+    item_id,
     title,
     author,
     category,
@@ -15,7 +15,7 @@ const BookItem = ({ book }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteBook(itemID));
+    dispatch(deleteBook(item_id));
   };
 
   return (
@@ -56,7 +56,7 @@ const BookItem = ({ book }) => {
 
 BookItem.propTypes = {
   book: PropTypes.shape({
-    itemID: PropTypes.string.isRequired,
+    item_id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
