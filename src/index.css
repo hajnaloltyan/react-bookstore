@@ -2,7 +2,13 @@
   scroll-behavior: smooth;
 }
 
-body,
+:root {
+  --blue: #0290ff;
+  --white: #ffffff;
+  --black: #000;
+  --bg-grey: #fafafa;
+}
+
 h1,
 h2,
 h3,
@@ -19,9 +25,19 @@ li {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: var(--black);
 }
 
 button {
   cursor: pointer;
+  background-color: var(--blue);
+  border: 0;
+  border-radius: 3px;
+  color: var(--white);
+}
+
+body{
+  background-color: var(--bg-grey);
+  margin: 0;
+  font-family: Montserrat, sans-serif;
 }

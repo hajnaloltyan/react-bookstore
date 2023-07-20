@@ -1,10 +1,17 @@
 .header {
-  margin: 2% 10%;
+  padding: 2% 8%;
   display: flex;
   gap: 10%;
   align-items: center;
+  background-color: #fff;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0290ff;
 }
 
 .content {
-  margin: 3% 10%;
+  margin: 3% 8%;
 }
