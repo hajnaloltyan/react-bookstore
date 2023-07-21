@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { checkTheStatus } from '../../redux/categories/categoriesSlice';
+import './Categories.css';
 
 const Categories = () => {
   const status = useSelector((state) => state.categories);
@@ -14,7 +15,7 @@ const Categories = () => {
   };
 
   return (
-    <div>
+    <section className="categories">
       <h2>Status:</h2>
       <h2>{status}</h2>
       {!buttonClicked
@@ -23,7 +24,7 @@ const Categories = () => {
           Check Status
         </button>
         )}
-    </div>
+    </section>
   );
 };
 

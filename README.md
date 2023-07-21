@@ -32,18 +32,26 @@
 
 # 📖 Bookstore <a name="about-project"></a>
 
-This is my Microverse **Bookstore** site, created with React + Vite and CSS.
+This is my Microverse **Bookstore** site, created with React + Vite, React Router, Redux and CSS. The page has the functionality to fetch books from the server, add new books and even delete books from the server. It consists of 2 pages, Books as the main page, and Categories as a page currently under construction, with working routing in place.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
-  <summary>React</summary>
+  <summary>React + Vite</summary>
 </details>
 
 <details>
   <summary>React Router</summary>
+</details>
+
+<details>
+  <summary>Redux</summary>
+</details>
+
+<details>
+  <summary>Redux Toolkit</summary>
 </details>
 
 <details>
@@ -58,8 +66,9 @@ This is my Microverse **Bookstore** site, created with React + Vite and CSS.
 
 ### Key Features <a name="key-features"></a>
 
-- **React**
+- **React + Vite**
 - **React Router**
+- **Redux Toolkit**
 - **GitFlow**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
