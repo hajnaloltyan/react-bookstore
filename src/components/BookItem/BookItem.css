@@ -12,8 +12,8 @@
   justify-content: space-between;
   align-items: center;
   gap: 5vw;
-  flex-grow: 2;
-  padding: 2%;
+  flex-grow: 3;
+  padding: 2% 2% 1%;
 }
 
 .bookInfo {
@@ -39,13 +39,22 @@
 
 .actionButtons {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   padding-top: 20px;
+}
+
+.actionBtn {
+  font-weight: 300;
+  font-family: Roboto Slab, serif;
+  color: var(--blue-font);
+  background-color: transparent;
+  text-transform: capitalize;
 }
 
 .hr-button {
   height: 20px;
   margin: 0;
+  opacity: 50%;
 }
 
 .bookCompletion {
@@ -66,8 +75,8 @@
 .completionTexts {
   display: flex;
   flex-direction: column;
-  text-align: center;
   gap: 3px;
+  padding-right: 50px;
 }
 
 .percentageText {
@@ -81,17 +90,32 @@
 .card-hr {
   height: 80px;
   margin: 0;
+  opacity: 50%;
 }
 
 .bookChapter {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   text-align: left;
   padding: 0 5%;
+  font-family: RobotoSlab;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.curChap-text {
+  opacity: 50%;
+  text-transform: uppercase;
+}
+
+.curChap-value {
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
 .progressBtn {
   width: 50%;
+  padding: 10px;
 }

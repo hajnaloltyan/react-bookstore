@@ -28,17 +28,17 @@ const BookItem = ({ book }) => {
 
           <ul className="actionButtons">
             <li>
-              <button type="button">Comments</button>
+              <button type="button" className="actionBtn">Comments</button>
             </li>
             <hr className="hr-button" />
             <li>
-              <button type="button" onClick={handleDelete}>
+              <button type="button" onClick={handleDelete} className="actionBtn">
                 Remove
               </button>
             </li>
             <hr className="hr-button" />
             <li>
-              <button type="button">Edit</button>
+              <button type="button" className="actionBtn">Edit</button>
             </li>
           </ul>
         </div>
@@ -55,8 +55,8 @@ const BookItem = ({ book }) => {
       <hr className="card-hr" />
 
       <div className="bookChapter">
-        <h4>Current Chapter</h4>
-        <h4>{currentChapter}</h4>
+        <p className="curChap-text">Current Chapter</p>
+        <p className="curChap-value">{currentChapter}</p>
         <button type="button" className="progressBtn">Update Progress</button>
       </div>
     </li>
