@@ -7,6 +7,7 @@
   --white: #ffffff;
   --black: #000;
   --bg-grey: #fafafa;
+  --black-font: #121212;
 }
 
 h1,
@@ -25,7 +26,11 @@ li {
 
 a {
   text-decoration: none;
-  color: var(--black);
+  color: var(--black-font);
+  opacity: 50%;
+  font-size: 15px;
+  letter-spacing: 1.9px;
+  text-transform: uppercase;
 }
 
 button {
