@@ -8,6 +8,7 @@
   --black: #000;
   --bg-grey: #fafafa;
   --black-font: #121212;
+  --blue-font: #4386bf;
   --grey-2: #e8e8e8;
 }
 
@@ -51,4 +52,5 @@ body{
   background-color: var(--bg-grey);
   margin: 0;
   font-family: Montserrat, sans-serif;
+  color: var(--black-font);
 }

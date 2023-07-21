@@ -74,7 +74,7 @@ const booksSlice = createSlice({
         books: action.payload.map((book) => ({
           ...book,
           currentChapter: 'Chapter 1',
-          completed: '0%',
+          completed: '20%',
         })),
       }))
       .addCase(fetchBooks.rejected, (state, action) => ({

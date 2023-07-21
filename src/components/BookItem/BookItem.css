@@ -2,9 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #000;
-  border-radius: 8px;
-  background-color: #fff;
+  border: 1px solid var(--grey-2);
+  border-radius: 4px;
+  background-color: var(--white);
 }
 
 .bookDetails {
@@ -13,12 +13,28 @@
   align-items: center;
   gap: 5vw;
   flex-grow: 2;
-  padding: 3%;
+  padding: 2%;
 }
 
 .bookInfo {
   text-align: left;
   padding-bottom: 5px;
+  font-size: 14px;
+}
+
+.bookCategory {
+  opacity: 50%;
+}
+
+.bookTitle {
+  font-size: 22px;
+  font-family: Roboto Slab, serif;
+}
+
+.bookAuthor {
+  font-weight: 300;
+  font-family: Roboto Slab, serif;
+  color: var(--blue-font);
 }
 
 .actionButtons {
@@ -27,13 +43,39 @@
   padding-top: 20px;
 }
 
+.hr-button {
+  height: 20px;
+  margin: 0;
+}
+
+.bookCompletion {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .circle {
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border: 5px solid #307bbe;
   transform: rotate(45deg);
-  border-color: var(--blue) var(--blue) var(--blue) var(--bg-grey);
+  border-color: var(--blue) var(--grey-2) var(--grey-2) var(--grey-2);
+}
+
+.completionTexts {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 3px;
+}
+
+.percentageText {
+  font-size: 32px;
+}
+
+.completedText {
+  opacity: 50%;
 }
 
 .card-hr {
