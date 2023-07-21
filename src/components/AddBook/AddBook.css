@@ -6,16 +6,39 @@
   margin-top: 30px;
 }
 
+.newBook-title {
+  font-size: 20px;
+  color: #888;
+  text-transform: uppercase;
+}
+
 .form {
   display: flex;
   justify-content: space-between;
 }
 
 .bookInput {
-  width: 20vw;
+  font-size: 16px;
+  width: 25vw;
+  border: 1px solid var(--grey-2);
+  border-radius: 4px;
+  padding: 15px;
+}
+
+::placeholder {
+  color: #c4c4c4;
 }
 
 .warning {
   color: red;
   text-align: center;
+}
+
+.submit {
+  color: var(--white);
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+  font-weight: 600;
+  font-family: Roboto Slab, serif;
+  padding: 0 45px;
 }
