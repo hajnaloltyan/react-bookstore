@@ -3,7 +3,7 @@ import './Navbar.css';
 
 const links = [
   { path: '/', text: 'Books' },
-  { path: 'categories', text: 'Categories' },
+  { path: '/categories', text: 'Categories' },
 ];
 
 const Navbar = () => (
@@ -13,7 +13,6 @@ const Navbar = () => (
         <li key={text}>
           <NavLink
             to={path}
-            className="active"
           >
             {text}
           </NavLink>

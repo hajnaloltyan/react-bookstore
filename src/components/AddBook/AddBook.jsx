@@ -37,7 +37,7 @@ const AddBook = () => {
 
   return (
     <section className="newBook">
-      <h2>Add New Book</h2>
+      <h2 className="newBook-title">Add New Book</h2>
       <form onSubmit={handleSubmit} className="form">
         <input
           type="text"

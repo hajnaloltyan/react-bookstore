@@ -2,7 +2,16 @@
   scroll-behavior: smooth;
 }
 
-body,
+:root {
+  --blue: #0290ff;
+  --white: #fff;
+  --black: #000;
+  --bg-grey: #fafafa;
+  --black-font: #121212;
+  --blue-font: #4386bf;
+  --grey-2: #e8e8e8;
+}
+
 h1,
 h2,
 h3,
@@ -19,9 +28,29 @@ li {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: var(--black-font);
+  opacity: 50%;
+  font-size: 13px;
+  letter-spacing: 1.9px;
+  text-transform: uppercase;
 }
 
 button {
+  font-family: Roboto Slab, serif;
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
   cursor: pointer;
+  background-color: var(--blue);
+  border: 0;
+  border-radius: 3px;
+  color: var(--white);
+}
+
+body {
+  background-color: var(--bg-grey);
+  margin: 0;
+  font-family: Montserrat, sans-serif;
+  color: var(--black-font);
 }
