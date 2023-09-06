@@ -34,6 +34,8 @@
 
 This is my Microverse **Bookstore** site, created with React + Vite, React Router, Redux and CSS. The page has the functionality to fetch books from the server, add new books and even delete books from the server. It consists of 2 pages, Books as the main page, and Categories as a page currently under construction, with working routing in place.
 
+Design was based on the given mock-up, only given Desktop version and the task was to recreate it as close as possible.
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
